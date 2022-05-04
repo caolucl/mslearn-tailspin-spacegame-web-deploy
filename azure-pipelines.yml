@@ -81,9 +81,10 @@ stages:
           steps:
           - download: current
             artifact: drop
+            
           - task: AzureWebApp@1
-            displayName: 'Azure App Service Deploy: website'
             inputs:
-              azureSubscription: 'Azure Pass - Sponsorship (2f858c57-6594-463c-b525-a5d7afec60cf)'
-              appName: '$(WebAppName)'
-              package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
+              azureSubscription: 'tailspin-space-game'
+              appType: 'webAppLinux'
+              appName: 'tailspin-space-game-lcaodevops1'
+              package: '$(System.DefaultWorkingDirectory)/**/*.zip'
